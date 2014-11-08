@@ -1,8 +1,9 @@
 h2 {
-    color:red;
+    align-content: center;
+    font-family: Helvetica;
 }
 
 p {
-    color:blue;
-    font-familt: Arial;
+    font-familt: Helvetica;
 }
+
