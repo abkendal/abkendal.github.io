@@ -19,6 +19,7 @@
 var playerLives = 3;
 var playerScore = 0;
 var winTrue = 0;
+var keyObtained = 0;
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -154,6 +155,10 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+        if (keyObtained === 0) {
+            gamekey.render();
+        }   
+        
         allEnemies.forEach(function(enemy) {
             
             // Clears the top of the canvas 
@@ -164,6 +169,7 @@ var Engine = (function(global) {
 
         player.render();
         lives.render(playerLives);
+        
 
         // Will render the game over object and lock the player in the starting position if lives go to 0
         if (playerLives === 0){
@@ -173,9 +179,8 @@ var Engine = (function(global) {
             player.x = 200;
             player.y= 380;
         }
-        if (winTrue === 1){
+        if (winTrue === 1 && keyObtained === 1){
             //debugger;
-            //console.log(win.render)
             gamewin.render();
             player.x = 200;
             player.y= 380;
@@ -201,6 +206,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
+        'images/Key.png',
         'images/0.png',
         'images/1.png',
         'images/2.png',
