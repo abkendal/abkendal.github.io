@@ -14,9 +14,11 @@
  * a little simpler to work with.
  */
 
- //Creates some global variables for lives and score. 
+ // Creates some global variables for lives, score and winTrue. winTrue tells game 
+ // when the player has reached the goal area.  
 var playerLives = 3;
 var playerScore = 0;
+var winTrue = 0;
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -162,8 +164,19 @@ var Engine = (function(global) {
 
         player.render();
         lives.render(playerLives);
+
+        // Will render the game over object and lock the player in the starting position if lives go to 0
         if (playerLives === 0){
+            console.log(gameover.render)
+
             gameover.render();
+            player.x = 200;
+            player.y= 380;
+        }
+        if (winTrue === 1){
+            //debugger;
+            //console.log(win.render)
+            gamewin.render();
             player.x = 200;
             player.y= 380;
         }
@@ -192,7 +205,9 @@ var Engine = (function(global) {
         'images/1.png',
         'images/2.png',
         'images/3.png',
-        'images/gameover.png'
+        'images/gameover.png',
+        'images/gameover2.png',
+        'images/youwin.png'
     ]);
     Resources.onReady(init);
 

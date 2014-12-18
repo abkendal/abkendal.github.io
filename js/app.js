@@ -91,6 +91,9 @@ Player.prototype.update = function() {
 }
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    if (this.y < 40) {
+        winTrue = 1;
+    }
     
 }
 
@@ -148,16 +151,25 @@ Lives.prototype.render = function (num) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Creates a class for the game over display
 var GameOver = function () {
-    this.x = 150;
-    this.y = 250;
+    this.x = 55;
+    this.y = 200;
 }
-
 GameOver.prototype.render = function () {
     this.sprite = 'images/gameover.png';
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+// Creates a class for the gamewin display
+var GameWin = function () {
+    this.x = 100;
+    this.y = 180;
+}
+GameWin.prototype.render = function () {
+    this.sprite = 'images/youwin.png';
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
  
 // Now instantiate your objects.
 // Each enemy has a variable starting location. The variation in x axis starting locations creates
@@ -178,6 +190,7 @@ var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
 var player = new Player();
 var lives = new Lives();
 var gameover = new GameOver();
+var gamewin = new GameWin();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
