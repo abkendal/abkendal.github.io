@@ -137,6 +137,12 @@ Player.prototype.handleInput = function(key) {
     if (gamekey.y === this.y && gamekey.x === this.x) {
         keyObtained = 1;
     }
+    if (gamekey2.y === this.y && gamekey2.x === this.x) {
+        key2Obtained = 1;
+    }
+    if (gamekey3.y === this.y && gamekey3.x === this.x) {
+        key3Obtained = 1;
+    }
 }
 
 // Lives display class
@@ -233,7 +239,19 @@ var keyx = -2 + (randx * 101);
 var randy = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 var keyy = -35 + (randy * 83);
 
+var randx2 = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
+var keyx2 = -2 + (randx2 * 101);
+var randy2 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+var keyy2 = -35 + (randy2 * 83);
+
+var randx3 = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
+var keyx3 = -2 + (randx3 * 101);
+var randy3 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+var keyy3 = -35 + (randy3 * 83);
+
 var gamekey = new Key(keyx, keyy);
+var gamekey2 = new Key(keyx2, keyy2);
+var gamekey3 = new Key(keyx3, keyy3);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
