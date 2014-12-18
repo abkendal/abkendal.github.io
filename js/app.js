@@ -73,7 +73,7 @@ var FastEnemy = function(x, y) {
 };
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
-FastEnemy.prototype.speed = 3;
+FastEnemy.prototype.speed = 2.5;
 
 
 
@@ -186,7 +186,7 @@ var botFast1 = new FastEnemy (-500, 216);
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
 
-// Place the player object in a variable called player
+
 var player = new Player();
 var lives = new Lives();
 var gameover = new GameOver();
@@ -204,9 +204,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-function endgame() {
-    //playerLives = 3;
-    //playerScore = 0;
-    //lastTime = Date.now();
-}
