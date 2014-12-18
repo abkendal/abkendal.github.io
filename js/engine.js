@@ -20,6 +20,7 @@ var playerLives = 3;
 var playerScore = 0;
 var winTrue = 0;
 var keyObtained = 0;
+var gameEnd = 0;
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -176,14 +177,17 @@ var Engine = (function(global) {
             console.log(gameover.render)
 
             gameover.render();
+            gameEnd=1;
             player.x = 200;
             player.y= 380;
         }
         if (winTrue === 1 && keyObtained === 1){
             //debugger;
             gamewin.render();
+            gameEnd = 1;
             player.x = 200;
-            player.y= 380;
+            player.y= -35;
+
         }
     }
 
