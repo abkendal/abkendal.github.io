@@ -1,5 +1,5 @@
 // Enemies our player must avoid. Enemy takes two arguments which specify where on the screen
-// the enemy will be created.
+// the enemy will be created. 
 var Enemy = function(x, y) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
