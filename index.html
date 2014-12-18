@@ -3,10 +3,31 @@
 <head>
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
+	<!--Splash screen-->
+	<div id="SplashScreen">
+		<h1>Valley Dash</h1>
+		<img src="images/splashScreen.png"/>
+		<input id="StartButton" type="button" value="Start"/>
+	</div>
+
+	<!--Start button-->
+	<script>
+	    $("#StartButton").click(function () {
+	        $("#SplashScreen").hide();
+	        $("#canvasID").show();
+	    });
+	</script>
+
     <script src="js/resources.js"></script>
-    <script src="js/engine.js"></script>
-    <script src="js/app.js"></script>
+    <script id="engine" src="js/engine.js"></script>
+    <script id="app" src="js/app.js"></script>
+    
+    <!--Hide the canvas until the start button has been pressed-->
+    <script>
+		$("#canvasID").hide();
+    </script>
 </body>
 </html>

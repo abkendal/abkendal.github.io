@@ -211,14 +211,14 @@ var midFast1 = new FastEnemy (-150, 133);
 var botSlow1 = new SlowEnemy (-300, 216);
 var botFast1 = new FastEnemy (-500, 216);
 */
-var top1 = new FastEnemy (-100, 50);
-var top2 = new FastEnemy (-450, 50);
-var top3 = new FastEnemy (-750, 50);
-var mid1 = new MedEnemy (-200, 133);
-var mid2 = new MedEnemy (-500, 133);
-var mid3 = new MedEnemy (-800, 133);
-var bot1 = new SlowEnemy (-250, 216);
-var bot2 = new SlowEnemy (-750, 216);
+var top1 = new FastEnemy (250, 50);
+var top2 = new FastEnemy (-100, 50);
+var top3 = new FastEnemy (-450, 50);
+var mid1 = new MedEnemy (100, 133);
+var mid2 = new MedEnemy (-200, 133);
+var mid3 = new MedEnemy (-500, 133);
+var bot1 = new SlowEnemy (250, 216);
+var bot2 = new SlowEnemy (-250, 216);
 
 // Place all enemy objects in an array called allEnemies
 //var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
