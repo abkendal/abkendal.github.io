@@ -3,19 +3,12 @@
  * draws the initial game board on the screen, and then calls the update and
  * render methods on your player and enemy objects (defined in your app.js).
  *
- * A game engine works by drawing the entire game screen over and over, kind of
- * like a flipbook you may have created as a kid. When your player moves across
- * the screen, it may look like just that image/character is moving or being
- * drawn but that is not the case. What's really happening is the entire "scene"
- * is being drawn over and over, presenting the illusion of animation.
- *
- * This engine is available globally via the Engine variable and it also makes
- * the canvas' context (ctx) object globally available to make writing app.js
- * a little simpler to work with.
  */
 
  // Creates some global variables for lives, score and winTrue. winTrue tells game 
- // when the player has reached the goal area.  
+ // when the player has reached the goal area/top row. KeyObtained tells the game
+ // if the player has obtained the key yet. gameEnd tells the game to no longer 
+ // respond to keyboard inputs.  
 var playerLives = 3;
 var playerScore = 0;
 var winTrue = 0;
@@ -143,8 +136,8 @@ var Engine = (function(global) {
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
-
-
+        // Clears the top of the canvas
+        ctx.clearRect(0, 0, canvas.width, 50);
         renderEntities();
     }
 
@@ -156,15 +149,13 @@ var Engine = (function(global) {
         /* Loop through all of the objects within the allEnemies array and call
          * the render function you have defined.
          */
+
+         // Renders they key as long as it has not been obtained
         if (keyObtained === 0) {
             gamekey.render();
         }   
         
         allEnemies.forEach(function(enemy) {
-            
-            // Clears the top of the canvas 
-            ctx.clearRect(0, 0, canvas.width, 50);
-            
             enemy.render();
         });
 
@@ -172,7 +163,7 @@ var Engine = (function(global) {
         lives.render(playerLives);
         
 
-        // Will render the game over object and lock the player in the starting position if lives go to 0
+        // If the player runs out of lives, they will receive a Game Over and the game will end.
         if (playerLives === 0){
             console.log(gameover.render)
 
@@ -181,13 +172,14 @@ var Engine = (function(global) {
             player.x = 200;
             player.y= 380;
         }
+
+        // The player wins the game when they have obtained the key and are located in
+        // the top row. When the player wins they will receive a You Win and the
+        // game will end.
         if (winTrue === 1 && keyObtained === 1){
             //debugger;
             gamewin.render();
             gameEnd = 1;
-            player.x = 200;
-            player.y= -35;
-
         }
     }
 

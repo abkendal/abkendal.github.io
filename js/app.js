@@ -24,8 +24,8 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + xmove;
 
     // Once moving off the screen,  the enemy will be moved back to its initial x location
-    if (this.x > 700) {
-        this.x = this.initialx;
+    if (this.x > 800) {
+        this.x = -100;
     }
 
     // Here is the collision detection. If the enemy collides with the player, the player will be sent back 
@@ -65,7 +65,7 @@ var MedEnemy = function (x, y) {
 };
 MedEnemy.prototype = Object.create(Enemy.prototype);
 MedEnemy.prototype.constructor = MedEnemy;
-MedEnemy.prototype.speed = 2;
+MedEnemy.prototype.speed = 1.5;
 
 //Create the fastest subblass of Enemy.
 var FastEnemy = function(x, y) {
@@ -73,7 +73,7 @@ var FastEnemy = function(x, y) {
 };
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
-FastEnemy.prototype.speed = 2.5;
+FastEnemy.prototype.speed = 3;
 
 
 
@@ -196,6 +196,7 @@ Key.prototype.render = function (){
 // Each enemy has a variable starting location. The variation in x axis starting locations creates
 // the enemy asynchrony. 
 
+/*
 var topSlow1 = new SlowEnemy (-75, 50);
 var topMed1 = new MedEnemy (-200, 50);
 var topFast1 = new FastEnemy (-300, 50);
@@ -203,10 +204,21 @@ var midMed1 = new MedEnemy(-175, 133);
 var midFast1 = new FastEnemy (-150, 133);
 var botSlow1 = new SlowEnemy (-300, 216);
 var botFast1 = new FastEnemy (-500, 216);
+*/
+var top1 = new FastEnemy (-100, 50);
+var top2 = new FastEnemy (-450, 50);
+var top3 = new FastEnemy (-750, 50);
+var mid1 = new MedEnemy (-200, 133);
+var mid2 = new MedEnemy (-500, 133);
+var mid3 = new MedEnemy (-800, 133);
+var bot1 = new SlowEnemy (-250, 216);
+var bot2 = new SlowEnemy (-750, 216);
 
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
+//var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
 //var allEnemies = [topSlow1];
+
+var allEnemies = [top1, top2, top3, mid1, mid2, mid3, bot1, bot2];
 
 
 var player = new Player();
@@ -214,15 +226,12 @@ var lives = new Lives();
 var gameover = new GameOver();
 var gamewin = new GameWin();
 
+// Creates a random location on the track for the key to
+// be generated
 var randx = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
-console.log("randx"+randx);
 var keyx = -2 + (randx * 101);
-console.log("keyx:"+keyx);
-
 var randy = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-console.log("randy"+randy);
 var keyy = -35 + (randy * 83);
-console.log("keyy"+keyy);
 
 var gamekey = new Key(keyx, keyy);
 
