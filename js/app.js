@@ -197,20 +197,15 @@ Key.prototype.render = function (){
     this.sprite = 'images/Key.png';
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
- 
+
+var RestartGame = function (){
+    location.reload();
+} 
+
 // Now instantiate your objects.
 // Each enemy has a variable starting location. The variation in x axis starting locations creates
 // the enemy asynchrony. 
 
-/*
-var topSlow1 = new SlowEnemy (-75, 50);
-var topMed1 = new MedEnemy (-200, 50);
-var topFast1 = new FastEnemy (-300, 50);
-var midMed1 = new MedEnemy(-175, 133);
-var midFast1 = new FastEnemy (-150, 133);
-var botSlow1 = new SlowEnemy (-300, 216);
-var botFast1 = new FastEnemy (-500, 216);
-*/
 var top1 = new FastEnemy (250, 50);
 var top2 = new FastEnemy (-100, 50);
 var top3 = new FastEnemy (-450, 50);
@@ -256,14 +251,22 @@ var gamekey3 = new Key(keyx3, keyy3);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    if (gameEnd === 0) {
-        var allowedKeys = {
+            var allowedKeys = {
             37: 'left',
             38: 'up',
             39: 'right',
             40: 'down'
         };
+    if (splashState === 1) {
+        $("#SplashScreen").hide();
+        $("#canvasID").show();
+        splashState = 0;
     }
+    else if (splashState === 0 && gameEnd === 0) {
 
-    player.handleInput(allowedKeys[e.keyCode]);
-});
+        player.handleInput(allowedKeys[e.keyCode]);
+    }
+    else if (gameEnd === 1){
+        RestartGame();
+    };
+});    

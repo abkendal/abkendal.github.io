@@ -16,6 +16,7 @@ var keyObtained = 0;
 var key2Obtained = 0;
 var key3Obtained = 0;
 var gameEnd = 0;
+var splashState = 1;
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -176,6 +177,7 @@ var Engine = (function(global) {
         if (playerLives === 0){
             gameover.render();
             gameEnd=1;
+            //location.reload();
 
         }
 
@@ -194,8 +196,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        playerLives = 3; 
-        playerScore = 0;
+        //location.restart();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
