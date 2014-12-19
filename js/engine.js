@@ -5,18 +5,8 @@
  *
  */
 
- // Creates some global variables for lives, score and winTrue. winTrue tells game 
- // when the player has reached the goal area/top row. KeyObtained tells the game
- // if the player has obtained the key yet. gameEnd tells the game to no longer 
- // respond to keyboard inputs.  
-var playerLives = 3;
-var playerScore = 0;
-var winTrue = 0;
-var keyObtained = 0;
-var key2Obtained = 0;
-var key3Obtained = 0;
-var gameEnd = 0;
-var splashState = 1;
+
+
 
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
@@ -195,8 +185,20 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
+
+    // Creates some global variables for lives, score and winTrue. winTrue tells game 
+    // when the player has reached the goal area/top row. KeyObtained tells the game
+    // if the player has obtained the key yet. gameEnd tells the game to no longer 
+    // respond to keyboard inputs.  
     function reset() {
-        //location.restart();
+        var playerLives = 3;
+        var playerScore = 0;
+        var winTrue = 0;
+        var keyObtained = 0;
+        var key2Obtained = 0;
+        var key3Obtained = 0;
+        var gameEnd = 0;
+        var splashState = 1;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
