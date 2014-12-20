@@ -170,6 +170,31 @@ Lives.prototype.render = function (num) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Level display class
+var LevelDisplay = function () {
+    this.x = 30;
+    this.y = 70;
+}
+
+LevelDisplay.prototype.render = function (num) {
+    if (num === 1) {
+        this.sprite = 'images/level1.png';
+    }
+    else if (num === 2) {
+        this.sprite = 'images/level2.png';
+    }
+    else if (num === 3) {
+        this.sprite = 'images/level3.png';
+    }
+    else if (num === 4) {
+        this.sprite = 'images/level4.png';
+    }
+    else if (num === 5) {
+        this.sprite = 'images/level5.png';
+    }
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Game over display class
 var GameOver = function () {
     this.x = 55;
@@ -291,6 +316,7 @@ var lives = new Lives();
 var gameover = new GameOver();
 var gamewin = new GameWin();
 var levelclear = new LevelClear();
+var leveldisplay = new LevelDisplay();
 
 // Creates a random location on the track for the key to
 // be generated

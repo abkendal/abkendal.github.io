@@ -171,6 +171,7 @@ var Engine = (function(global) {
 
         player.render();
         lives.render(playerLives);
+        leveldisplay.render(currentLevel)
         
 
         // If the player runs out of lives, they will receive a Game Over and the game will end.
@@ -233,7 +234,12 @@ var Engine = (function(global) {
         'images/gameover.png',
         'images/gameover2.png',
         'images/youwin.png',
-        'images/levelClearflat.png'
+        'images/levelClearflat.png',
+        'images/level1.png',
+        'images/level2.png',
+        'images/level3.png',
+        'images/level4.png',
+        'images/level5.png'
     ]);
     Resources.onReady(init);
 
