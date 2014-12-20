@@ -52,24 +52,27 @@ Enemy.prototype.render = function() {
 }
 
 //Create the slowest subclass of Enemy. 
-var SlowEnemy = function (x, y) {
+var SlowEnemy = function (x, y, level) {
     Enemy.call(this,x, y);
+    this.speed = this.speed * level * 0.5;
 };
 SlowEnemy.prototype = Object.create(Enemy.prototype);
 SlowEnemy.prototype.constructor = SlowEnemy;
 SlowEnemy.prototype.speed = 1;
 
 //Create medium speed subclass of Enemy.
-var MedEnemy = function (x, y) {
+var MedEnemy = function (x, y, level) {
     Enemy.call(this, x, y);
+    this.speed = this.speed * level * 0.5;
 };
 MedEnemy.prototype = Object.create(Enemy.prototype);
 MedEnemy.prototype.constructor = MedEnemy;
 MedEnemy.prototype.speed = 1.5;
 
 //Create the fastest subblass of Enemy.
-var FastEnemy = function(x, y) {
+var FastEnemy = function(x, y, level) {
     Enemy.call(this, x, y);
+    this.speed = this.speed * level * 0.4;
 };
 FastEnemy.prototype = Object.create(Enemy.prototype);
 FastEnemy.prototype.constructor = FastEnemy;
@@ -177,6 +180,17 @@ GameOver.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+// Level in display class
+var LevelClear = function () {
+    this.x = 100;
+    this.y = 180;
+}
+
+LevelClear.prototype.render = function () {
+    this.sprite = 'images/levelClearflat.png';
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 // Game win display class
 var GameWin = function () {
     this.x = 100;
@@ -198,34 +212,85 @@ Key.prototype.render = function (){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
+// Reloads the browser when the game ends
 var RestartGame = function (){
     location.reload();
+}
+
+// Resets the initial state for the new level
+var NewLevel = function () {
+    playerLives = 3;
+    winTrue = 0;
+    gameEnd = 0;
+    levelClear = 0;
+    keyObtained = 0;
+    key2Obtained = 0;
+    key3Obtained = 0;
+    player.x = 200
+    player.y = 380;
+    currentLevel = currentLevel + 1;
+    NewKeys();
+    NewEnemies();
 } 
+
+// Sets new key locations
+var NewKeys =  function () {
+    randx = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
+    keyx = -2 + (randx * 101);
+    randy = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    keyy = -35 + (randy * 83);
+
+    randx2 = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
+    keyx2 = -2 + (randx2 * 101);
+    randy2 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    keyy2 = -35 + (randy2 * 83);
+
+    randx3 = Math.floor(Math.random() * (4 - 0 + 1)) + 0; 
+    keyx3 = -2 + (randx3 * 101);
+    randy3 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+    keyy3 = -35 + (randy3 * 83);
+    console.log(keyx, keyy, keyx2, keyy2, keyx3, keyy3);
+    console.log("new keys")
+    gamekey = new Key(keyx, keyy);
+    gamekey2 = new Key(keyx2, keyy2);
+    gamekey3 = new Key(keyx3, keyy3);
+}
+
+var NewEnemies = function () {
+    top1 = new FastEnemy (250, 50, currentLevel);
+    top2 = new FastEnemy (-100, 50, currentLevel);
+    top3 = new FastEnemy (-450, 50, currentLevel);
+    mid1 = new MedEnemy (100, 133, currentLevel);
+    mid2 = new MedEnemy (-200, 133, currentLevel);
+    mid3 = new MedEnemy (-500, 133, currentLevel);
+    bot1 = new SlowEnemy (250, 216, currentLevel);
+    bot2 = new SlowEnemy (-250, 216, currentLevel);
+    allEnemies = [top1, top2, top3, mid1, mid2, mid3, bot1, bot2];
+}
 
 // Now instantiate your objects.
 // Each enemy has a variable starting location. The variation in x axis starting locations creates
 // the enemy asynchrony. 
 
-var top1 = new FastEnemy (250, 50);
-var top2 = new FastEnemy (-100, 50);
-var top3 = new FastEnemy (-450, 50);
-var mid1 = new MedEnemy (100, 133);
-var mid2 = new MedEnemy (-200, 133);
-var mid3 = new MedEnemy (-500, 133);
-var bot1 = new SlowEnemy (250, 216);
-var bot2 = new SlowEnemy (-250, 216);
+var top1 = new FastEnemy (250, 50, currentLevel);
+var top2 = new FastEnemy (-100, 50, currentLevel);
+var top3 = new FastEnemy (-450, 50, currentLevel);
+var mid1 = new MedEnemy (100, 133, currentLevel);
+var mid2 = new MedEnemy (-200, 133, currentLevel);
+var mid3 = new MedEnemy (-500, 133, currentLevel);
+var bot1 = new SlowEnemy (250, 216, currentLevel);
+var bot2 = new SlowEnemy (-250, 216, currentLevel);
+
+
 
 // Place all enemy objects in an array called allEnemies
-//var allEnemies = [topSlow1, midMed1, topFast1, midFast1, botSlow1, botFast1];
-//var allEnemies = [topSlow1];
-
 var allEnemies = [top1, top2, top3, mid1, mid2, mid3, bot1, bot2];
-
 
 var player = new Player();
 var lives = new Lives();
 var gameover = new GameOver();
 var gamewin = new GameWin();
+var levelclear = new LevelClear();
 
 // Creates a random location on the track for the key to
 // be generated
@@ -269,4 +334,7 @@ document.addEventListener('keyup', function(e) {
     else if (gameEnd === 1){
         RestartGame();
     };
+    if (levelClear === 1) {
+        NewLevel();
+    }
 });    
