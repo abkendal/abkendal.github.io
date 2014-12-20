@@ -123,7 +123,7 @@ Player.prototype.handleInput = function(key) {
         case 'right':
             this.x = this.x + 101;
             if (this.x > 404) {
-                this.x = 404;
+                this.x = 402;
             }
            break;
         case 'down':
