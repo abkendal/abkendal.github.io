@@ -4,8 +4,16 @@
  * render methods on your player and enemy objects (defined in your app.js).
  *
  */
+var playerLives = 3;
+var playerScore = 0;
+var winTrue = 0;
+var gameEnd = 0;
 
 
+var keyObtained = 0;
+var splashState = 1;
+var key2Obtained = 0;
+var key3Obtained = 0;
 
 
 var Engine = (function(global) {
@@ -191,14 +199,17 @@ var Engine = (function(global) {
     // if the player has obtained the key yet. gameEnd tells the game to no longer 
     // respond to keyboard inputs.  
     function reset() {
-        var playerLives = 3;
-        var playerScore = 0;
-        var winTrue = 0;
-        var keyObtained = 0;
-        var key2Obtained = 0;
-        var key3Obtained = 0;
-        var gameEnd = 0;
-        var splashState = 1;
+        playerLives = 3;
+        playerScore = 0;
+        winTrue = 0;
+        gameEnd = 0;
+
+
+        keyObtained = 0;
+        splashState = 1;
+        key2Obtained = 0;
+        key3Obtained = 0;
+        
     }
 
     /* Go ahead and load all of the images we know we're going to need to
