@@ -274,8 +274,7 @@ var NewKeys =  function () {
     keyx3 = -2 + (randx3 * 101);
     randy3 = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
     keyy3 = -35 + (randy3 * 83);
-    console.log(keyx, keyy, keyx2, keyy2, keyx3, keyy3);
-    console.log("new keys")
+
     gamekey = new Key(keyx, keyy);
     gamekey2 = new Key(keyx2, keyy2);
     gamekey3 = new Key(keyx3, keyy3);
@@ -284,13 +283,13 @@ var NewKeys =  function () {
 var NewEnemies = function () {
     top1 = new FastEnemy (250, 50, currentLevel);
     top2 = new FastEnemy (-100, 50, currentLevel);
-    top3 = new FastEnemy (-450, 50, currentLevel);
+    //top3 = new FastEnemy (-450, 50, currentLevel);
     mid1 = new MedEnemy (100, 133, currentLevel);
     mid2 = new MedEnemy (-200, 133, currentLevel);
     mid3 = new MedEnemy (-500, 133, currentLevel);
     bot1 = new SlowEnemy (250, 216, currentLevel);
     bot2 = new SlowEnemy (-250, 216, currentLevel);
-    allEnemies = [top1, top2, top3, mid1, mid2, mid3, bot1, bot2];
+    allEnemies = [top1, top2, mid1, mid2, mid3, bot1, bot2];
 }
 
 // Now instantiate your objects.
@@ -298,8 +297,8 @@ var NewEnemies = function () {
 // the enemy asynchrony. 
 
 var top1 = new FastEnemy (250, 50, currentLevel);
-var top2 = new FastEnemy (-100, 50, currentLevel);
-var top3 = new FastEnemy (-450, 50, currentLevel);
+var top2 = new FastEnemy (-250, 50, currentLevel);
+//var top3 = new FastEnemy (-450, 50, currentLevel);
 var mid1 = new MedEnemy (100, 133, currentLevel);
 var mid2 = new MedEnemy (-200, 133, currentLevel);
 var mid3 = new MedEnemy (-500, 133, currentLevel);
@@ -309,7 +308,7 @@ var bot2 = new SlowEnemy (-250, 216, currentLevel);
 
 
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [top1, top2, top3, mid1, mid2, mid3, bot1, bot2];
+var allEnemies = [top1, top2, mid1, mid2, mid3, bot1, bot2];
 
 var player = new Player();
 var lives = new Lives();
