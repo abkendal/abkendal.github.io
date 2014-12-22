@@ -4,18 +4,26 @@
  * render methods on your player and enemy objects (defined in your app.js).
  *
  */
+
+// Global variables relating to game states
 var playerLives = 3;
 var playerScore = 0;
+
 var winTrue = 0;
 var gameEnd = 0;
 var currentLevel = 1;
 var levelClear = 0;
-
-
 var keyObtained = 0;
 var splashState = 1;
 var key2Obtained = 0;
 var key3Obtained = 0;
+var key4Obtained = 0;
+var key5Obtained = 0;
+var key6Obtained = 0;
+var blueGemObtained = 0;
+var blueGem2Obtained = 0;
+var frozen = 0;
+var heartObtained = 0;
 
 
 var Engine = (function(global) {
@@ -30,8 +38,8 @@ var Engine = (function(global) {
         lastTime;
 
     canvas.setAttribute("id", "canvasID");
-    canvas.width = 505;
-    canvas.height = 606;
+    canvas.width = 459;
+    canvas.height = 500;
     doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
@@ -113,15 +121,19 @@ var Engine = (function(global) {
          * for that particular row of the game level.
          */
         var rowImages = [
-                'images/water-block.png',   // Top row is water
-                'images/stone-block.png',   // Row 1 of 3 of stone
-                'images/stone-block.png',   // Row 2 of 3 of stone
-                'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
-                'images/grass-block.png'    // Row 2 of 2 of grass
+                'images/rsz-water-block.png',   // Top row is water
+                'images/rsz-stone-block.png',   // Row 1 of 3 of stone
+                'images/rsz-stone-block.png',   // Row 2 of 3 of stone
+                'images/rsz-stone-block.png',
+                'images/rsz-grass-block.png',
+                'images/rsz-stone-block.png',   // Row 1 of 3 of stone
+                'images/rsz-stone-block.png',   // Row 2 of 3 of stone
+                'images/rsz-stone-block.png',   // Row 3 of 3 of stone
+                'images/rsz-grass-block.png',   // Row 1 of 2 of grass
+                'images/rsz-grass-block.png'    // Row 2 of 2 of grass
             ],
-            numRows = 6,
-            numCols = 5,
+            numRows = 10,
+            numCols = 9,
             row, col;
 
         /* Loop through the number of rows and columns we've defined above
@@ -137,11 +149,11 @@ var Engine = (function(global) {
                  * so that we get the benefits of caching these images, since
                  * we're using them over and over.
                  */
-                ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
+                ctx.drawImage(Resources.get(rowImages[row]), col * 51, row * 42);
             }
         }
         // Clears the top of the canvas
-        ctx.clearRect(0, 0, canvas.width, 50);
+        ctx.clearRect(0, 0, canvas.width, 25);
         renderEntities();
     }
 
@@ -154,6 +166,19 @@ var Engine = (function(global) {
          * the render function you have defined.
          */
 
+         //Renders the heart as long as it has not been obtained 
+         if (heartObtained === 0) {
+            heart.render();
+         }
+
+         // Renders the blue gems as long as they have not been obtained
+        if (blueGemObtained === 0) {
+            bluegem.render();
+        }
+        if (blueGem2Obtained === 0) {
+            bluegem2.render();
+        }
+
          // Renders they key as long as it has not been obtained
         if (keyObtained === 0) {
             gamekey.render();
@@ -164,6 +189,16 @@ var Engine = (function(global) {
         if (key3Obtained === 0) {
             gamekey3.render();
         }
+        if (key4Obtained === 0) {
+            gamekey4.render();
+        }
+        if (key5Obtained === 0) {
+            gamekey5.render();
+        }
+        if (key6Obtained === 0) {
+            gamekey6.render();
+        }
+        
 
         allEnemies.forEach(function(enemy) {
             enemy.render();
@@ -181,14 +216,13 @@ var Engine = (function(global) {
 
         }
 
-        // The player wins the game when they have obtained the key and are located in
-        // the top row. When the player wins they will receive a victory screen and the
-        // game will end.
-        if (winTrue === 1 && keyObtained === 1 && key2Obtained === 1 && key3Obtained === 1){
+        // The player beats the level when they have obtained the key and are located in
+        // the top row. After 5 levels the player wins the game
+        if (winTrue === 1 && keyObtained === 1 && key2Obtained === 1 && key3Obtained === 1 && key4Obtained === 1 && key5Obtained === 1 & key6Obtained === 1){
             levelclear.render();
             levelClear = 1;
         }
-        if (winTrue === 1 && keyObtained === 1 && key2Obtained === 1 && key3Obtained === 1 && currentLevel === 5){
+        if (winTrue === 1 && keyObtained === 1 && key2Obtained === 1 && key3Obtained === 1 && key4Obtained === 1 && key5Obtained === 1 & key6Obtained === 1 && currentLevel === 5){
             gamewin.render();
             gameEnd = 1;
         }
@@ -204,15 +238,6 @@ var Engine = (function(global) {
     // if the player has obtained the key yet. gameEnd tells the game to no longer 
     // respond to keyboard inputs.  
     function reset() {
-        playerLives = 3;
-        winTrue = 0;
-        gameEnd = 0;
-        levelClear = 0;
-
-
-        keyObtained = 0;
-        key2Obtained = 0;
-        key3Obtained = 0;
         
     }
 
@@ -221,16 +246,26 @@ var Engine = (function(global) {
      * all of these images are properly loaded our game will start.
      */
     Resources.load([
-        'images/stone-block.png',
-        'images/water-block.png',
-        'images/grass-block.png',
-        'images/enemy-bug.png',
-        'images/char-boy.png',
-        'images/Key.png',
-        'images/0.png',
-        'images/1.png',
-        'images/2.png',
-        'images/3.png',
+        'images/rsz-stone-block.png',
+        'images/rsz-water-block.png',
+        'images/rsz-grass-block.png',
+        'images/rsz-enemy-bug.png',
+        'images/rsz-char-boy.png',
+        'images/rsz-char-boy-frozen.png',
+        'images/rsz-Key.png',
+        'images/rsz-Gem-Blue.png',
+        'images/rsz-Gem-Orange.png',
+        'images/rsz-Heart.png',
+        'images/rsz-0.png',
+        'images/rsz-1.png',
+        'images/rsz-2.png',
+        'images/rsz-3.png',
+        'images/rsz-4.png',
+        'images/rsz-5.png',
+        'images/rsz-6.png',
+        'images/rsz-7.png',
+        'images/rsz-8.png',
+        'images/rsz-9.png',
         'images/gameover.png',
         'images/gameover2.png',
         'images/youwin.png',
