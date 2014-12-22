@@ -400,7 +400,7 @@ var NewEnemies = function () {
     mid22 = new MedEnemy (-50, 236, currentLevel);
     mid23 = new MedEnemy (-350, 236, currentLevel);
     bot21 = new SlowEnemy (200, 278, currentLevel);
-    bot22 = new SlowEnemy (-3000, 278, currentLevel);
+    bot22 = new SlowEnemy (-300, 278, currentLevel);
     allEnemies = [top1, top2, mid1, mid2, mid3, bot1, bot2, top21, top22, mid21, mid22, mid23, bot21, bot22];
 
 }
@@ -447,7 +447,7 @@ var mid21 = new MedEnemy (250, 236, currentLevel);
 var mid22 = new MedEnemy (-50, 236, currentLevel);
 var mid23 = new MedEnemy (-350, 236, currentLevel);
 var bot21 = new SlowEnemy (200, 278, currentLevel);
-var bot22 = new SlowEnemy (-3000, 278, currentLevel);
+var bot22 = new SlowEnemy (-300, 278, currentLevel);
 
 
 
