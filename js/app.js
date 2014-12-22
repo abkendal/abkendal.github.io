@@ -284,7 +284,7 @@ var Key = function (x, y) {
     this.y = y;
 }
 Key.prototype.render = function (){
-    this.sprite = 'images/rsz-Key.png';
+    this.sprite = 'images/rszKey.png';
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
@@ -303,7 +303,7 @@ var BlueGem = function (x, y) {
 };
 BlueGem.prototype = Object.create(Gem.prototype);
 BlueGem.prototype.constructor = BlueGem;
-BlueGem.prototype.sprite = 'images/rsz-Gem-Blue.png';
+BlueGem.prototype.sprite = 'images/rszGem-Blue.png';
 
 // Hearts that a player can pick up to gain an extra life
 var Heart = function (x, y) {
@@ -311,7 +311,7 @@ var Heart = function (x, y) {
     this.y = y;
 }
 Heart.prototype.render = function (){
-    this.sprite = 'images/rsz-Heart.png';
+    this.sprite = 'images/rszHeart.png';
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
