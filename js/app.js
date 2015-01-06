@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
     this.x = this.x + xmove;
 
     // Once moving off the screen,  the enemy will be moved back to its initial x location
-    if (this.x > 900) {
+    if (this.x > 700) {
         this.x = -100;
     }
 
@@ -258,7 +258,7 @@ GameOver.prototype.render = function () {
 
 // Level in display class
 var LevelClear = function () {
-    this.x = 30;
+    this.x = 65;
     this.y = 120;
 }
 
@@ -269,8 +269,8 @@ LevelClear.prototype.render = function () {
 
 // Game win display class
 var GameWin = function () {
-    this.x = 285;
-    this.y = 380;
+    this.x = 65;
+    this.y = 120;
 }
 GameWin.prototype.render = function () {
     this.sprite = 'images/youwin.png';
