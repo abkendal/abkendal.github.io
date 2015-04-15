@@ -54,3 +54,7 @@ img {
 .body-margin {
 	margin:20px;
 }
+#body-content {
+	position: relative;
+	top:-20px;
+}
