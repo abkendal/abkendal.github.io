@@ -1,0 +1,80 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+body {
+padding-top: 0px;
+  font-family: Helvetica,arial,sans-serif;
+  font-weight: normal;
+  font-size: 12px;
+  font-family: "Montserrat";
+  line-height: 1.6em;
+  letter-spacing: 0px;
+  font-weight: 400;
+  font-style: normal;
+    background-color: #fff;
+  color: #666;
+}
+
+a {
+	color: #111;
+}
+a:hover {
+	text-decoration: none;
+	color:#595858;
+}
+div {
+	display: block;
+}
+h3 {
+	color:#111;
+}
+
+
+.logo {
+	  margin: 0;
+  font-family: Varela Round,Helvetica,arial,sans-serif;
+  font-weight: normal;
+  text-transform: normal;
+  font-size: 36px;
+  letter-spacing: 0px;
+  font-family: "Montserrat";
+  line-height: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+  display: inline-block;
+}
+.nopadding {
+
+   padding: 5px !important;
+
+}
+
+#container {
+	padding: 40px;
+}
+#content{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+#logo {
+	float:left;
+}
+#footer {
+  padding-left: 15px;
+}
+
+
+
+
+
+
+
+
+
