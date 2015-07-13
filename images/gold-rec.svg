@@ -1,56 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Adam Kendal</title>
-	<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/animate.css">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" media="(min-width: 1400px)" href="css/min1400.css" />
-	<link rel="stylesheet" media="(max-width: 1000px)" href="css/max1000.css" />
-	<link rel="stylesheet" media="(max-width: 600px)" href="css/max600.css" />
-	<link rel="stylesheet" media="(max-width: 475px)" href="css/max475.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script>
-	$(function() {
-	  $('a[href*=#]:not([href=#])').click(function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  });
-	});
-	</script>
-</head>
-<body>
-	<div class="navigation clearfix" id="navigation">
-		<div class="wrapper clearfix">
-			<div class="home">
-				<a href="#main">Adam Kendal</a>
-			</div>
-			<ul class="menu vertical-text">
-				<li><a href="#work">Work</a></li>
-				<li><a href="#profile">Profile</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-		</div>
-	</div> <!--/.navigation -->
-
-
-	<div class="main" id="main">
-		<div class="wrapper">
-			<div class="main-img wow fadeInRight" data-wow-duration="2s">
-			<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg width="599px" height="375px" viewBox="0 0 599 375" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
     <title>Slice 1 Copy</title>
@@ -74,129 +22,66 @@
         </g>
     </g>
     <style>
-         #Rectangle-1 {
+        #Rectangle-1 {
             opacity: 0;
         }
         #Rectangle-1:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-2 {
             opacity: 0;
         }
         #Rectangle-2:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-3 {
             opacity: 0;
         }
         #Rectangle-3:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-4 {
             opacity: 0;
         }
         #Rectangle-4:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-5 {
             opacity: 0;
         }
         #Rectangle-5:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-6 {
             opacity: 0;
         }
         #Rectangle-6:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-7 {
             opacity: 0;
         }
         #Rectangle-7:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-8 {
             opacity: 0;
         }
         #Rectangle-8:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-9 {
             opacity: 0;
         }
         #Rectangle-9:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
         #Rectangle-10 {
             opacity: 0;
         }
         #Rectangle-10:hover {
             opacity: .8;
-            transition: opacity 1s ease;
         }
 
     </style>
 </svg>
-			</div>
-			<h1 class="main-header wow fadeInLeft" data-wow-duration="2s">Front End <br>Web Developer</h1>
-		</div>
-	</div><!--/.main -->
-
-	<div class="work section" id="work">
-		<ul class="work-container">
-			<li>
-				<a href="http://maplecrate.ca">
-					<img class="wow fadeInRight" data-wow-duration="2s" src="images/work1.jpg" alt="">
-				</a>
-			</li>
-			<li><a href="http://abkendal.github.io/YogaCorpv2"><img class="wow fadeInLeft" data-wow-duration="2s" src="images/work2.jpg" alt=""></a></li>
-			<li><a href="http://abkendal.github.io/Noah-Kendal-Portfolio/"><img class="wow fadeInRight" data-wow-duration="2s" src="images/work3.jpg" alt=""></a></li>
-			<li><a href="http://sleepmedcorp.ca/"><img class="wow fadeInLeft" data-wow-duration="2s" src="images/work4.jpg" alt=""></a></li>
-			<li><a href="http://abkendal.github.io/Grogger/"><img class="wow fadeInRight" data-wow-duration="2s" src="images/work5.jpg" alt=""></a></li>
-			<li><a href="https://github.com/abkendal"><img class="wow fadeInLeft" data-wow-duration="2s" src="images/work6.jpg" alt=""></a></li>
-		</ul>
-	</div><!--/.work -->
-
-	<div class="profile section" id="profile">
-		<div class="wrapper clearfix">
-			<div class="profile-info wow fadeInLeft" data-wow-duration="2s" >
-				<p><strong>I'm a neuroscientist turned web developer from Toronto with a focus on Front End Development.</strong></p>
-				<h3>Current</h3>
-				<p>Freelance Web Developer - since 01/2015</p>
-				<h3>Study</h3>
-				<p>M.Sc. Cognitive Neuroscience - McGill University</p>
-				<p>Hon. B.Sc. Psychology & Neuroscience - McMaster University</p>
-
-			</div>
-			<div class="profile-img wow fadeInRight" data-wow-duration="2s" ></div>
-		</div>
-	</div>
-	<div class="contact section" id="contact">
-		<div class="wrapper">
-			<h3>kendal.adam@gmail.com</h3>
-			<h3>647-802-6755</h3>
-			<ul class="social-container">
-				<li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-				<li><a href=""><i class="fa fa-linkedin-square"></i></a></li>
-			</ul>
-			<p> Design Inspired by Tim Brack</p>
-		</div>
-	</div>
-
-	<script src="js/wow.min.js"></script>
-	<script>
-	 new WOW().init();
-	</script>
-</body>
-</html>
